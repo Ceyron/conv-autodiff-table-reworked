@@ -22,6 +22,9 @@
 <p class="text-center">
   <img src="vjp_of_convolution.svg"></img>
 </p>
+<p class="text-center">
+  <a href="https://jax-conv-vjp.streamlit.app/">Interactive App</a>
+</p>
 
 <table class="table table-striped table-hover text-left">
   <thead>
@@ -173,7 +176,7 @@
       <td>
 <pre>w_cot = conv(
   x, z_cot,
-  padding=(p_l, TODO),
+  padding=(p_l, K-N-p_l+s*((N-K+p_l+p_r)//s)),
   stride=1,
   dilation=s,
   fill=1,
@@ -284,7 +287,7 @@
       <td>
 <pre>w_cot = conv(
   x, z_cot,
-  padding=(p_l, TODO),
+  padding=(p_l, K-N-p_l+s*((N-K+p_l+p_r)//s)),
   stride=d,
   dilation=s,
   fill=f,
