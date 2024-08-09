@@ -120,7 +120,7 @@
       <td>
 <pre>x_cot = conv(
   z_cot, w,
-  padding=(TODO, TODO),
+  padding=(K-p_l-1, K-p_r-1),
   stride=1,
   dilation=1,
   fill=s,
@@ -132,7 +132,7 @@
       <td>
 <pre>w_cot = conv(
   x, z_cot,
-  padding=(TODO, TODO),
+  padding=(0, 0),
   stride=1,
   dilation=s,
   fill=1,
