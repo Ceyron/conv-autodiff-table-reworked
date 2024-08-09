@@ -161,7 +161,7 @@
       <td>
 <pre>x_cot = conv(
   z_cot, w,
-  padding=(K-p_l-1, TODO)
+  padding=(K-p_l-1, N+p_l-1-s*((N-K+p_l+p_r)//s))
   stride=1,
   dilation=1,
   fill=s,
@@ -272,7 +272,7 @@
       <td>
 <pre>x_cot = conv(
   z_cot, w,
-  padding=(K-p_l-1, TODO),
+  padding=(K-p_l-1, N+p_l-1-s*((N-K+p_l+p_r)//s))
   stride=f,
   dilation=d,
   fill=s,
