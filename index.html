@@ -109,6 +109,44 @@
       </td>
     </tr>
     <tr>
+      <td>Strided Convolution, No Padding</td>
+      <td>
+<pre>z = conv(
+  x, w,
+  padding=(0, 0),
+  stride=s,
+  dilation=1,
+  fill=1,
+)
+</pre>
+      </td>
+      <td>
+<pre>x_cot = conv(
+  z_cot, w,
+  padding=(K-1, K-1 + (N+K)%s)
+  stride=1,
+  dilation=1,
+  fill=s,
+  flip_kernel=True,
+  permute_kernel=True,
+)
+</pre>
+      </td>
+      <td>
+<pre>w_cot = conv(
+  x, z_cot,
+  padding=(0, (N+K)%s),
+  stride=1,
+  dilation=s,
+  fill=1,
+  permute_kernel=True,
+  permute_input=True,
+)
+</pre>
+      </td>
+    </tr>
+    </tr>
+    <tr>
       <td>Strided Convolution</td>
       <td>
 <pre>z = conv(
