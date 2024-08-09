@@ -105,6 +105,154 @@
 )</pre>
       </td>
     </tr>
+    <tr>
+      <td>Strided Convolution</td>
+      <td>
+<pre>z = conv(
+  x, w,
+  padding=(p_l, p_r),
+  stride=s,
+  dilation=1,
+  fill=1,
+)
+</pre>
+      </td>
+      <td>
+<pre>x_cot = conv(
+  z_cot, w,
+  padding=(TODO, TODO),
+  stride=1,
+  dilation=1,
+  fill=s,
+  flip=True,
+  permute_kernel=True,
+)
+</pre>
+      </td>
+      <td>
+<pre>w_cot = conv(
+  x, z_cot,
+  padding=(TODO, TODO),
+  stride=1,
+  dilation=s,
+  fill=1,
+  permute_kernel=True,
+  permute_input=True,
+)
+</pre>
+      </td>
+    </tr>
+    <tr>
+      <td>Dilated Convolution</td>
+      <td>
+<pre>z = conv(
+  x, w,
+  padding=(p_l, p_r),
+  stride=1,
+  dilation=d,
+  fill=1,
+)
+</pre>
+      </td>
+      <td>
+<pre>x_cot = conv(
+  z_cot, w,
+  padding=(TODO, TODO),
+  stride=1,
+  dilation=d,
+  fill=1,
+  flip=True,
+  permute_kernel=True,
+)
+</pre>
+      </td>
+      <td>
+<pre>w_cot = conv(
+  x, z_cot,
+  padding=(TODO, TODO),
+  stride=d,
+  dilation=1,
+  fill=1,
+  permute_kernel=True,
+  permute_input=True,
+)
+</pre>
+      </td>
+    </tr>
+    <tr>
+      <td>Transposed Convolution (Filled Convolution)</td>
+      <td>
+<pre>z = conv(
+  x, w,
+  padding=(p_l, p_r),
+  stride=1,
+  dilation=1,
+  fill=f,
+)
+</pre>
+      </td>
+      <td>
+<pre>x_cot = conv(
+  z_cot, w,
+  padding=(TODO, TODO),
+  stride=2,
+  dilation=1,
+  fill=1,
+  flip=True,
+  permute_kernel=True,
+)
+</pre>
+      </td>
+      <td>
+<pre>w_cot = conv(
+  x, z_cot,
+  padding=(TODO, TODO),
+  stride=1,
+  dilation=1,
+  fill=f,
+  permute_kernel=True,
+  permute_input=True,
+)
+</pre>
+      </td>
+    </tr>
+    <tr>
+      <td>General Convolution</td>
+      <td>
+<pre>z = conv(
+  x, w,
+  padding=(p_l, p_r),
+  stride=s,
+  dilation=d,
+  fill=f
+)
+</pre>
+      </td>
+      <td>
+<pre>x_cot = conv(
+  z_cot, w,
+  padding=(TODO, TODO),
+  stride=f,
+  dilation=d,
+  fill=s,
+  flip=True,
+  permute_kernel=True,
+)
+</pre>
+      </td>
+      <td>
+<pre>w_cot = conv(
+  x, z_cot,
+  padding=(TODO, TODO),
+  stride=d,
+  dilation=s,
+  fill=f,
+  permute_kernel=True,
+  permute_input=True,
+)
+</pre>
+      </td>
+    </tr>
   </tbody>
 </table> 
 
